@@ -243,13 +243,47 @@ function patchVnode (oldVnode, vnode, insertedVnodeQueue, removeOnly) {
 ```
 ![](https://nlrx-wjc.github.io/Learn-Vue-Source-Code/assets/img/3.7b0442aa.png)
 
+**更新子节点**
+```js
+//  通过比较  newChild  与  oldChild  
+//  伪代码如下
+for (let i = 0; i < newChildren.length; i++) {
+  const newChild = newChildren[i];
+  for (let j = 0; j < oldChildren.length; j++) {
+    const oldChild = oldChildren[j];
+    if (newChild === oldChild) {
+      // ...
+    }
+  }
+}
+
+
+//  当 newChild  与  oldChild  相同   源码如下
+if (isUndef(idxInOld)) {    // 如果在oldChildren里找不到当前循环的newChildren里的子节点
+    // 新增节点并插入到合适位置
+    createElm(newStartVnode, insertedVnodeQueue, parentElm, oldStartVnode.elm, false, newCh, newStartIdx)
+} else {
+    // 如果在oldChildren里找到了当前循环的newChildren里的子节点
+    vnodeToMove = oldCh[idxInOld]
+    // 如果两个节点相同
+    if (sameVnode(vnodeToMove, newStartVnode)) {
+        // 调用patchVnode更新节点
+        patchVnode(vnodeToMove, newStartVnode, insertedVnodeQueue)
+        oldCh[idxInOld] = undefined
+        // canmove表示是否需要移动节点，如果为true表示需要移动，则移动节点，如果为false则不用移动
+        canMove && nodeOps.insertBefore(parentElm, vnodeToMove.elm, oldStartVnode.elm)
+    }
+}
+```
+
+
 ## key 的作用
 ![](https://user-gold-cdn.xitu.io/2018/6/15/16401a8ca73549bb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 ![](https://user-gold-cdn.xitu.io/2018/6/15/16401a8ca6d7e50c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 
 ## 小节
-****
+
 一切以更新后的 v-dom 为主
  通过和 old-v-dom 比较  不变的地方尽可能复用 减少DOM操作
  JS的计算性能来换取操作DOM所消耗的性能
