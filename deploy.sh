@@ -1,7 +1,4 @@
 #!/bin/bash
-if [ ! $1 ]; then  
-       $1='add docs'  
-fi  
 
 pushToServer() {
     sudo yarn run docs:build
@@ -10,13 +7,11 @@ pushToServer() {
     cd -
 }
 
-
 pushToGithub() {
-    git add *
-    git commit -m $1
     git push origin master
 }
 
 pushToServer
-pushToGithub $1
+pushToGithub 
+
 
