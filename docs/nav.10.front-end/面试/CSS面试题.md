@@ -128,3 +128,97 @@ transform: rotate3d(x, y, z, degree); /* 沿不同轴旋转 */
 </body>
 </html>
 ```
+
+## CSS 文字截断
+
+#### 单行文本截断
+```css
+/* 单行文本截断 */
+div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+```
+
+#### 多行文本截断
+```css
+/* 多行文本截断 */
+/* 方案一 */
+/* 多用于移动端页面，因为移动设备浏览器更多是基于 webkit 内核，除了兼容性不好，实现截断的效果不错 */
+div {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 方案二 */
+p {
+    position: relative;
+    line-height: 18px;
+    height: 36px;
+    overflow: hidden;
+}
+p::after {
+    content:"...";
+    font-weight:bold;
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding:0 20px 1px 45px;
+    
+    /* 为了展示效果更好 */
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
+    background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+}
+
+/* 方案三 */
+.wrap {
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.wrap .text {
+  float: right;
+  margin-left: -5px;
+  width: 100%;
+  word-break: break-all;
+}
+.wrap::before {
+  float: left;
+  width: 5px;
+  content: '';
+  height: 40px;
+}
+.wrap::after {
+  float: right;
+  content: "...";
+  height: 20px;
+  line-height: 20px;
+  /* 为三个省略号的宽度 */
+  width: 3em;
+  /* 使盒子不占位置 */
+  margin-left: -3em;
+  /* 移动省略号位置 */
+  position: relative;
+  left: 100%;
+  top: -20px;
+  padding-right: 5px;
+}
+
+```
+
+```html
+<!-- 方案三相关 html -->
+<div class="wrap">
+  <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos labore sit vel itaque delectus atque quos magnam assumenda quod architecto perspiciatis animi.</div>
+</div>
+```
+
+
+[传送门](https://zhuanlan.zhihu.com/p/34326190)
+

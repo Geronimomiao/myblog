@@ -27,7 +27,25 @@ title: position&display取值及用法
     *  此元素将显示为块级元素，此元素前后会带有换行符
 * inline 
     *  此元素会被显示为内联元素，元素前后没有换行符
+    *  行内元素，不能定义自己的宽和高 如果需要设置高度，可以通过行高line-height撑起来
 * inline-block
     *  行内块元素
+    *  可定义宽高
 * list-item
     *  此元素会作为列表显示
+* flex
+  *    见 flex 布局 
+
+**去除inline  inline-block元素间间距**
+* 除去html中空格
+```html
+<!-- 利用注释  较为优雅的写法 -->
+<div class="space">
+    <a href="##">惆怅</a><!--
+    --><a href="##">淡定</a><!--
+    --><a href="##">热血</a>
+</div>
+```
+****
+* 令父元素 font-size: 0  并给子元素单独设置 font-size
+
