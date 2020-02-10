@@ -1,5 +1,5 @@
 ---
-title: 2.md
+title: 摘录B.md
 time:  2019-12-20
 author: wsm
 mail: 1030057982@qq.com
@@ -21,7 +21,8 @@ github: https://github.com/Geronimomiao/advance
 #### 柯里化
 ****
 将一个多参函数转为一个前套的一元函数
-```
+ Currying ——只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数
+```js
 const curry = (fn) => {
 	return function curriedFn(...args) {
     if(args.length < fn.length) {
@@ -43,13 +44,13 @@ console.log(addPlus(1,2)(3))
 #### 偏应用
 ****
 允许开发者应用部分函数参数 ( 隐藏一部分参数
-```
+```js
 const partial = (fn, ...partialArgs) => {
-  return function (...fillAgrs) {
+  return function (...fillArgs) {
     let arg = 0;
-    for (let i = 0; i < partialArgs.length && arg < fillAgrs.length; i++) {
+    for (let i = 0; i < partialArgs.length && arg < fillArgs.length; i++) {
       if(partialArgs[i] === undefined) {
-        partialArgs[i] = fillAgrs[arg++]
+        partialArgs[i] = fillArgs[arg++]
       }
     }
     return fn.apply(null, partialArgs)
@@ -65,7 +66,7 @@ delayTenMs(()=> console.log('Do your task'))
 ****
 把一个函数的输出做为另一个函数的输入
 方向 从右向左  👈
-```
+```js
 const reduce = (array, fn, initialValue) => {
   let acc = initialValue ? initialValue : array[0]
   if (initialValue !== undefined) {
@@ -94,7 +95,7 @@ const compose = (...fns) =>
 ****
 把一个函数的输出做为另一个函数的输入
 方向 从左向右  👉
-```
+```js
 // 同组合函数的区别 函数组执行的方向
 const compose = (...fns) =>
   (value) => reduce(fns, (acc, fn) => fn(acc), value)
@@ -102,7 +103,7 @@ const compose = (...fns) =>
 
 #### 调试函数
 ****
-```
+```js
 // 在 组合调用 或 管道/序列中进行调试
 const identity = (it) => {
   console.log(it)
@@ -127,7 +128,7 @@ console.log(oddOrEvenWords('sss ss s d sss'))
 含有 of,  map 的 Maybe  是一个函子
 含有 chain 的函子 是一个 Monad
 **普通函子**
-```
+```js
 const Container = function(val) {
 	this.value = val
 }
@@ -145,7 +146,7 @@ Container.of(3).map(double)
 ```
 
 **MayBe 函子**
-```
+```js
 // MayBe 函子
 // 核心 检测值是否存在 不会抛异常 但不利于调试
 const MayBe = function (val) {
@@ -166,7 +167,7 @@ MayBe.prototype.map = function (fn) {
 ```
 
 **Either 函子**
-```
+```js
 // Either 函子
 
 const Nothing = function (val) {
@@ -218,7 +219,7 @@ let getTopPostsEither = (type) => {
 * Pointed 函子是函子的字集 实现了 of 契约接口
 
 **Monad 函子**
-```
+```js
 // 含有 chain 方法 函子
 
 // 打开嵌套 MayBe

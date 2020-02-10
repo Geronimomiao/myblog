@@ -1,5 +1,5 @@
 ---
-title:  1.md
+title:  摘录A.md
 time:  2019-12-20
 author: wsm
 mail: 1030057982@qq.com
@@ -7,14 +7,14 @@ github: https://github.com/Geronimomiao/advance
 ---
 
 ## 好书 ( 强推 
-****
+
 **掌握ES6 的一些基本即可试读**
 **本书由浅入深 层层递进**
 
 [书中代码仓库](https://github.com/antsmartian/functional-es8)
 
 ## 一些概念及代码
-****
+
 
 #### 一等公民
 ****
@@ -42,7 +42,7 @@ github: https://github.com/Geronimomiao/advance
 	* 以函数作为参数 并且或者返回函数作为输出的函数
 	* 抽象 将独特功能 做成通用功能
 
-```
+```js
 // 仅执行一次的函数
 const once = (fn) => {
 	let done = false
@@ -55,7 +55,7 @@ const once = (fn) => {
 // 缓存
 const memoized = (fn) => {
 	const lookupTable = {}
-	// 此处返回值 用的精妙 可参考例1运行结果
+	// 此处返回值  括号使用的精妙 可参考例1运行结果
 	return (arg) => lookupTable[arg] || (lookupTable[arg]=fn(arg)) 
 }
 
@@ -63,14 +63,15 @@ const memoized = (fn) => {
  var o = {
         a : 7,
         get a(){return 1;},//死循环
-        set a(){}
+        set a(v){}
 };
 var a = () => (o.a = 4443)
+a() // 4433
 ```
 
 ####  数组相关
 ****
-```
+```js
 const map = (array, fn) => {
 	let results = []
 	for(let value of array) {
@@ -115,10 +116,12 @@ var people = [
 ];
 
 //sorting with respect to firstname
-console.log("FirstName sort manually",people.sort((a,b) => { return (a.firstname < b.firstname) ? -1 : (a.firstname > b.firstname) ? 1 : 0 }))
+console.log("FirstName sort manually",
+		people.sort((a,b) => { return (a.firstname < b.firstname) ? -1 : (a.firstname > b.firstname) ? 1 : 0 }))
 
 //sorting with respect to lastname
-console.log("LastName sort manually",people.sort((a,b) => { return (a.lastname < b.lastname) ? -1 : (a.lastname > b.lastname) ? 1 : 0 }))
+console.log("LastName sort manually",
+		people.sort((a,b) => { return (a.lastname < b.lastname) ? -1 : (a.lastname > b.lastname) ? 1 : 0 }))
 
 //sorting with respect to firstname using sortBy
 console.log("Firstname using sortBy hoc",people.sort(sortBy("firstname")))
