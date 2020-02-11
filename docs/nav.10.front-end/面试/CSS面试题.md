@@ -222,3 +222,57 @@ p::after {
 
 [传送门](https://zhuanlan.zhihu.com/p/34326190)
 
+## CSS绘图
+
+#### 椭圆
+```css
+#oval {
+  width: 200px;
+  height: 100px;
+  background: red;
+  border-radius: 100px / 50px;
+}
+```
+
+#### 三角形
+```css
+
+#triangle-up {
+  /* 此处要细品 */
+  width: 0;
+  height: 0;
+  
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+
+#triangle-topleft {
+width: 0;
+height: 0;
+border-top: 100px solid red;
+border-right: 100px solid transparent;
+}
+```
+
+#### 梯形
+```css
+
+#trapezoid {
+  border-bottom: 100px solid red;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  height: 0;
+  width: 100px;
+}
+```
+
+#### 平行四边形
+```css
+#parallelogram {
+  width: 150px;
+  height: 100px;
+  transform: skew(20deg);
+  background: red;
+}
+```
