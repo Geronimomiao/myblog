@@ -14,6 +14,13 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-medium-zoom@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-1.3.0.tgz#10d9f5748beb584326a1bf2d2a675726cc2373c2"
+  integrity sha512-PttH1RX1co+c69O/Qkzjvs/jsK5OVbvUuIR1tanUoihKEVj2GU5EP0C9xAD0+QEyg5QbqqHafa6u2EQHCUM7xQ==
+  dependencies:
+    medium-zoom "^1.0.4"
+
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
@@ -340,6 +347,11 @@ mdurl@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
+
+medium-zoom@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-1.0.5.tgz#81413dda20ccdd857141ff420cfab788dd32e20e"
+  integrity sha512-aLGa6WlTuFKWvH88bqTrY5ztJMN+D0hd8UX6BYc4YSoPayppzETjZUcdVcksgaoQEMg4cZSmXPg846fTp2rjRQ==
 
 mem@^4.0.0:
   version "4.3.0"
