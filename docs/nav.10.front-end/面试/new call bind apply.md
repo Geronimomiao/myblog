@@ -1,5 +1,8 @@
+---
+title: 手写 new bind call apply
+---
+
 ## new
-****
 ```js
 function  myNew(fn, ...args) {
     let obj = {}
@@ -11,7 +14,6 @@ function  myNew(fn, ...args) {
 ```
 
 ## bind
-****
 ```js
 Function.prototype.myBind = function(ctx=window, ...args1) {
     let self = this
@@ -25,7 +27,6 @@ Function.prototype.myBind = function(ctx=window, ...args1) {
 
 
 ## call
-****
 ```js
 Function.prototype.myCall = function (ctx=window, ...args) {
     ctx.fn = this
@@ -38,7 +39,6 @@ Function.prototype.myCall = function (ctx=window, ...args) {
 
 
 ## apply
-****
 ```js
 Function.prototype.myApply = function (ctx=window, arr) {
     ctx.fn = this
