@@ -1,7 +1,7 @@
 ## 核心
 ****
 >    navigator.userAgent   通过匹配其中关键字
-```
+```js
 App.vue中
 
 export default {

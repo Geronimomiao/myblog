@@ -26,7 +26,7 @@ mail: 1030057982@qq.com
 ![Event](https://img.wsmpage.cn/learning/2019-11-17/1573954693022.png)
 
 
-```
+```js
 console.log(1);
 
 setTimeout(() => {
@@ -67,7 +67,7 @@ console.log(7);
 	* 开始执行macrotask宏任务，共6个阶段，从第1个阶段开始执行相应每一个阶段macrotask中的所有任务( 其中宏任务执行 产生新的宏任务 会在下轮执行 )
 		* Timers Queue -> 步骤2 -> I/O Queue -> 步骤2 -> Check Queue -> 步骤2 -> Close Callback Queue -> 步骤2 -> Timers Queue ......
 	   
-```
+```js
 console.log('1');
 
 setTimeout(function() {
@@ -124,7 +124,7 @@ setTimeout(function() {
 ****
 **补充**
 * Nodejs 中 setImmediate 和 setTimeout 的执行顺序
-```
+```js
 setTimeout(() => {
   console.log('setTimeout');
 }, 0);
@@ -137,7 +137,7 @@ setImmediate(() => {
 	* 在 nodejs 异步回调中，首先进入 timers 阶段，如果机器性能不好，进入该阶段时 1ms 已经过去了，那么 setTimeout 会首先执行。
 	* 如果机器性能好，进入 timers 阶段时，setTimeOut 还在等待 1ms ，这时会执行后面的阶段，当执行到 check 阶段时，会执行 setImmediate
 
-```
+```js
 var fs = require('fs');
 
 fs.readFile(__filename, () => {

@@ -9,7 +9,7 @@ mail: 1030057982@qq.com
 	* return出来是一个Error类型，则同样会被包装成一个promise对象，该promise对象的状态是reject, 值是Error的信息
 	* 如果没有return任何东西，则同样会返回一个promise对象。该promise对象的状态为fullfilled，该promsie的值为undefined.
 
-```
+```js
 // 普通值
 async function f1 () {
     return 10;
@@ -19,14 +19,14 @@ fn1().then(function (x) {
   console.log(x);      // 10
 })
 ```
-```
+```js
 // Error类型
 async function f1 () {
     return new Error('报错了');
 }
 console.log(f1())     // Promise {<rejected>: Error: 报错了
 ```
-```
+```js
 async function f1 () {
     //do nothing     
 }
@@ -34,7 +34,7 @@ console.log(f1());                   // Promise {<resolved>: undefined}
 ```
 
 * 取 promise 对象中的值
-```
+```js
 let p = Promise.resolve()
 p.then(function(x) {
 	console.log(x)
@@ -104,11 +104,11 @@ foo().then(() => {
 
 ## 真题
 ****
-```
+```js
 async function async1() {
   console.log(1);
   const result = await async2();
-  console.log(3);
+  console.log(3);  // 相当于 .then(console.log(3))
 }
 
 async function async2() {
@@ -128,5 +128,4 @@ console.log(6);
 
 
 // 1 2 6 4 3 5
-await async2() 添加微任务 3
 ```

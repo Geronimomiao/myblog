@@ -20,7 +20,7 @@ github: https://github.com/Geronimomiao/advance
         * 系统内置的函数对象：Function、Object、Array、String、Number ，Function其实充当了函数对象的构造器，比如Object对象的构造源码其实是Function Object() {[native code]}的形式，这一点对于理解原型链很重要
         * 由function创造出来的函数
     
-```
+```js
       function f1() {
      
       } 
@@ -33,7 +33,7 @@ github: https://github.com/Geronimomiao/advance
 
 
 #### 讲解用到的代码
-```
+```js
 function Foo(){
     //属性和方法
 }

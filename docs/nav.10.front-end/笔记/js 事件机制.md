@@ -7,7 +7,7 @@ mail: 1030057982@qq.com
 
 监听事件
 ****
-```
+```js
 var EventUtil ={
     addHandler: function(element, type, handler){
         //w3c
@@ -58,7 +58,7 @@ EventUtil.removeHandler(btn, 'click', handler);
 * 只需注册一个事件，节省大量内存空间
 * 可以实现 当新增子元素时不需再为其绑定事件，尤其是动态部分的内容，比如Ajax不需再为新增的元素进行绑定和对删除的元素解除绑定
 
-```
+```html
 <ul id="ul">
      <li>111</li>
       <li>222</li>
@@ -67,7 +67,7 @@ EventUtil.removeHandler(btn, 'click', handler);
 ```
 
 
-```
+```js
 var Oul=document.getElementById("ul");
 var Oli=Oul.getElementsByTagName("li");
 for(var i=0;i<Oli.length;i++){

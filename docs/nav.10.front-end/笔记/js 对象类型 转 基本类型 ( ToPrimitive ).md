@@ -1,5 +1,5 @@
 ---
-title: js 对象类型 转 基本类型 ( ToPrimitive )
+title:  js 类型转换
 time:  2019-11-21
 author: wsm
 mail: 1030057982@qq.com

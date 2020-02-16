@@ -13,7 +13,7 @@ mail: 1030057982@qq.com
 ****
 >  浏览器将CORS请求分为两类：简单请求（simple request）和非简单请求（not-simple-request）,简单请求浏览器不会预检，而非简单请求会预检
 
-```
+```js
 let a = '请求方法为 GET、POST、HEAD'
 let b = '请求头限制这几种字段 Accept、Accept-Language、Content-Language、Content-Type、Last-Event-ID'
 let c = 'Content-type 为 application/x-www-form-urlencoded、multipart/form-data、text/plain'
@@ -27,7 +27,7 @@ if(a&&b&&c) {
 
 > 简单请求，浏览器直接请求，会在请求头信息中，增加一个origin字段，来说明本次请求来自哪个源（协议+域名+端口）。服务器根据这个值，来决定是否同意该请求，服务器返回的响应会多几个头信息字段
 
-```
+```js
 Access-Control-Allow-Origin 该字段是必须的，* 表示接受任意域名的请求，还可以指定域名
 Access-Control-Allow-Credentials 该字段可选，是个布尔值，表示是否可以携带cookie
 Access-Control-Allow-Headers 该字段可选，里面可以获取Cache-Control、Content-Type、Expires等
