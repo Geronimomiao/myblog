@@ -1,5 +1,5 @@
 ---
-title: 用Promise封装 
+title: 用Promise封装 ajax
 ---
 ## 用 Promise 封装 ajax
 
