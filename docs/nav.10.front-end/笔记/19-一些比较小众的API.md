@@ -22,4 +22,40 @@ document.body.appendChild(oFrag);
 [详细链接](https://juejin.im/post/590f4eadac502e006cf718c3)
 
 
+## MutationObserver
 
+Mutation Observer API 用来监视 DOM 变动。DOM 的任何变动，比如节点的增减、属性的变动、文本内容的变动，这个 API 都可以得到通知
+
+概念上，它很接近事件，可以理解为 DOM 发生变动就会触发 Mutation Observer 事件。但是，它与事件有一个本质不同：事件是同步触发，也就是说，DOM 的变动立刻会触发相应的事件；Mutation Observer 则是异步触发，DOM 的变动并不会马上触发，而是要等到当前所有 DOM 操作都结束才触发
+
+这样设计是为了应付 DOM 变动频繁的特点。举例来说，如果文档中连续插入1000个 <li>元素，就会连续触发1000个插入事件，执行每个事件的回调函数，这很可能造成浏览器的卡顿；而 Mutation Observer 完全不同，只在 1000 个段落都插入结束后才会触发，而且只触发一次
+
+
+```js
+var mutationObserver = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    console.log(mutation);
+  });
+});
+
+// observe  — 启动监听
+// disconnect — 用来停止观察
+// takeRecords — 返用来清除变动记录，即不再处理未处理的变动。
+
+// 开始侦听页面的根 HTML 元素中的更改。
+mutationObserver.observe(document.documentElement, {
+  attributes: true,
+  characterData: true,
+  childList: true,
+  subtree: true,
+  attributeOldValue: true,
+  characterDataOldValue: true
+});
+```
+
+
+[传送门1](https://javascript.ruanyifeng.com/dom/mutationobserver.html)
+
+[传送门2](https://blog.fundebug.com/2019/01/10/understand-mutationobserver/)
+
+[传送门3](https://fecoding.cn/2016/09/08/learning-mutationobserver/)
