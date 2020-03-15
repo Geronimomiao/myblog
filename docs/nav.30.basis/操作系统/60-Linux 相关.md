@@ -1,12 +1,12 @@
 ---
-title: Linux 入门-1
+title: Linux 相关
 time:  2019-12-1
 author: wsm
 mail: 1030057982@qq.com
 github: https://github.com/Geronimomiao/advance
 ---
 
-**目录结构**
+## 目录结构
 ![enter description here](https://img.wsmpage.cn/learning/2019-12-1/1575159786553.png)
 
 * /bin 可执行二进制文件
@@ -25,12 +25,12 @@ github: https://github.com/Geronimomiao/advance
 [推荐链接](http://blog.sina.com.cn/s/blog_65a8ab5d0101f35l.html)
 
 
-**Linux 文件类型**
+## Linux 文件类型
 
 ![enter description here](https://img.wsmpage.cn/learning/2019-12-1/1575165629408.png)
 
 
-**Linux 存储管理**
+## Linux 存储管理
 * Buddy 内存管理算法 ( 努力让内存分配与相邻内存合并快速进行
 	* 基于计算机处理二进制的优势具有极高的效率
 	* 算法主要是为了解决内存外碎片问题 ( 内存外碎片 -> 内存内碎片 
@@ -45,7 +45,7 @@ github: https://github.com/Geronimomiao/advance
 
 ![enter description here](https://img.wsmpage.cn/learning/2019-12-1/1575159053064.png)
 
-**Linux 文件系统概览**
+## Linux 文件系统概览
 * 常见文件系统
 	* FAT ( File Allocation Table
 		* 微软Dos/Win 早期使用文件系统
@@ -74,7 +74,7 @@ github: https://github.com/Geronimomiao/advance
 
 
 
-**Ext 文件系统**
+## Ext 文件系统
 ![enter description here](https://img.wsmpage.cn/learning/2019-12-1/1575173322554.png)
 
 * tips:
@@ -99,3 +99,31 @@ github: https://github.com/Geronimomiao/advance
 > 表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：首先，系统找到这个文件名对应的inode号码；其次，通过inode号码，获取inode信息；最后，根据inode信息，找到文件数据所在的block，读出数据
 
 [推荐链接](https://www.ruanyifeng.com/blog/2011/12/inode.html)
+
+## 常用命令
+
+
+```
+netstat -nalp | grep 8080
+
+ps -ef | grep java // ps 显示当前进程状态
+ps -aux | grep java
+
+find /tmp/cg/testLinux -name "*.txt"
+
+df -T // 查看挂载磁盘信息
+ dumpe2fs /dev/vda1 | less // 查看指定设备 inode 信息
+ stat xxx // 查看某个文件具体信息
+```
+
+![enter description here](https://img.wsmpage.cn/learning/2019-10-9/1570579978858.png)
+
+
+
+![enter description here](https://img.wsmpage.cn/learning/2019-10-9/1570580003869.png)
+
+
+![enter description here](https://img.wsmpage.cn/learning/2019-10-10/1570673446983.png)
+
+
+![](https://img.wsmpage.cn/learning/2019-10-10/1570673461571.png)

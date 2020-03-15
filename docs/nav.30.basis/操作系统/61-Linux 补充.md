@@ -1,5 +1,5 @@
 ---
-title: Linux 杂记-1
+title: Linux 补充
 time:  2019-12-1
 author: wsm
 mail: 1030057982@qq.com
