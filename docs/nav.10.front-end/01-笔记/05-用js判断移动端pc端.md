@@ -1,5 +1,9 @@
+---
+title: 用 js 判断 PC端 / 移动端
+---
+
 ## 核心
-****
+
 >    navigator.userAgent   通过匹配其中关键字
 ```js
 App.vue中
