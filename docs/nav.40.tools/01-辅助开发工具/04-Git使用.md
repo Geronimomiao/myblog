@@ -51,3 +51,27 @@ git clone git@192.168.1.200:wangms/wms_script.git
 git push origin master
 ```
 
+## git 多人合作中的一些用法
+```shell
+# 切换分支
+git checkout xxx
+
+# 在原有分支的基础上 创建分支并切换
+git checkout -b iss53
+# 等同于2条语句
+git branch iss53 # git 创建分支
+git checkout iss53
+
+# 删除分支
+git branch -d iss53
+
+# 提交要在项目根目录 否则有些修改追踪不到
+git commit -m 'feat: xxxx'
+
+# 取回远程主机某个分支的更新，再与本地的指定分支合并
+git pull
+git fetch + git merge # 拉取 合并
+
+# git 允许手动建立追踪关系
+git branch --set-upstream master origin/next
+```
