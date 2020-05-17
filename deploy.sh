@@ -12,6 +12,6 @@ pushToGithub() {
 }
 
 pushToServer
-pushToGithub 
+# pushToGithub 
 
 
