@@ -32,7 +32,6 @@ module.exports = {
     logo: "/yuan.png",
   },
   plugins: [
-    "permalink-pinyin",
     ["autobar", { pinyinNav: true }],
     "rpurl",
     "meting",
